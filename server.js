@@ -5,10 +5,10 @@ const app = express();
 
 app.get('/api/students', async (req, res) => {
 
-    const result = await db.query('SELECT * FROM grades');
+    // const result = await db.query('SELECT * FROM grades');
+    const [ result ] = await db.query('SELECT * FROM grades');
 
     res.send({
-        message: 'This will contain students',
         students: result
     });
 });

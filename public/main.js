@@ -2,10 +2,27 @@ $(document).ready(initApp);
 
 function initApp(){
     console.log('App Initialized');
-
+    $('#add-form').on('submit', submitFormData);
     getStudents();
     
 };
+
+function submitFormData(e){
+    e.preventDefault();
+    
+    console.log('App initialized');
+
+    const name = $('#name');
+    const course = $('#course');
+    const grade = $('#grade');
+
+    addStudent(name.val(), course.val(), grade.val());
+
+    name.val('');
+    course.val('');
+    grade.val('');
+    
+}
 
 function getStudents(){
     const config = {
@@ -23,7 +40,7 @@ function getStudents(){
 function addStudentsToDom(students){
     const studentElements = [];
     const tbody = $('#student-data');
-
+    tbody.html('');
     students.forEach(student => {
         const tr = $('<tr>');
         const name = $('<td>', {text: student.name});

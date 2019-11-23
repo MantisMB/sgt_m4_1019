@@ -17,3 +17,7 @@ td {
     width: 33%;
     border-top: 1px solid #000000 ;
 }
+.form-div{
+    width: 100%;
+    margin: 0 auto;
+}
